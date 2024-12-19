@@ -17,11 +17,7 @@ export class UsersController {
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     console.log('flow reached here');
-    try {
-      return this.userService.create(createUserDto);
-    } catch (error) {
-      console.log('error', error)
-    }
+    return this.userService.create(createUserDto);
   }
 
   @Get()

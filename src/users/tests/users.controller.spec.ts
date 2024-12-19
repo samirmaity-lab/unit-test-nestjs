@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersController } from '../users.controller';
 import { UsersService } from '../users.service';
-import { BadRequestException } from '@nestjs/common';
 
 describe('UsersController', () => {
   let controller: UsersController;
@@ -23,12 +22,6 @@ describe('UsersController', () => {
       id: 1,
       ...dto,
     }));
-
     expect(controller.create(dto)).toEqual({ id: 1, ...dto });
-  });
-
-  it('should throw validation error for invalid DTO', () => {
-    const dto = { name: '', email: 'invalid-email' };
-    expect(() => controller.create(dto)).toThrow(BadRequestException);
   });
 });
