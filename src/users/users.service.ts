@@ -6,6 +6,7 @@ export class UsersService {
   private idCounter = 1;
 
   create(user) {
+    console.log('user', typeof user.name);
     const newUser = { id: this.idCounter++, ...user };
     this.users.push(newUser);
     return newUser;
